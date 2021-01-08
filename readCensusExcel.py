@@ -11,7 +11,7 @@ sheet = wb['Population by Census Tract']
 
 countyData ={}
 
-#TODO: Fill in countyData with each county's population and tracts.
+# Fill in countyData with each county's population and tracts.
 print('Reading rows...')
 
 for row in range(2, sheet.max_row + 1):
@@ -22,13 +22,11 @@ for row in range(2, sheet.max_row + 1):
 
     #Make sure the key for this state exists.
     countyData.setdefault(state, {})
-
     #Make sure the key for this county in this state exists.
     countyData[state].setdefault(county, {'tracts' : 0, 'pop' : 0})
 
     #Each row represents one census tract, so increment by one.
-    countyData[state][county]['tracts'] += 1
-    
+    countyData[state][county]['tracts'] += 1    
     #Increase the county pop by he pop in this census tract.
     countyData[state][county]['pop'] += int(pop)
 
